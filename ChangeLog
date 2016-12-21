@@ -1,0 +1,31 @@
+1.1
+	df1d
+	- Changed acknowledge timeout to be a configurable parameter via
+	the configuration file.
+	- Added support for embedded responses.
+	- Fixed UTF-8 conversion while parsing configuration file.
+	- Fixed memory leaks during XML configuration parsing.
+	
+	lib
+	- Fixed some memory leaks.
+	- Additional command testing.
+	- Fixed various return values for connection management functions.
+	- Added support for string elements.
+	- Added support for status elements.
+	- Added checks for calling functions with NULL connection pointers.
+	- Created more descriptive function return values.
+	- Fixed a slight ACK delay in rare cases where a reply is received
+	before the ACK for the originating command.
+	- More correct reporting of error codes received in replies.
+	- Modified the transaction number initialization so multiple processes
+	sending the same command in quick succession get different tranaction
+	number values.
+	- Added SetTimeout command.
+	- Added SetNAKs command.
+	- Added SetENQs command.
+	- Added ReadModifyWrite command.
+	- Changed various function arguments and structure members to size_t
+	where appropriate.
+	
+1.0
+	- Initial Release

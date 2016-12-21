@@ -1,0 +1,65 @@
+Allen Bradley PCCC protocol library and DF1 link layer service.
+
+
+!!!WARNING!!!
+=============
+These programs are capable of modifying data within programmable logic
+controllers, which can result in equipment damage, personal injury and/or
+loss of life. I assume no responsibility for the use of these programs.
+
+
+
+Requirements
+============
+
+	libxml2(for df1d only): http:\\www.xmlsoft.org
+	doxygen(only for libpccc HTML API docs): http:\\www.doxygen.org
+
+
+Installation
+============
+
+	make
+	become root
+	make install
+
+This will install the libpccc shared library in /usr/local/lib and the df1d
+executable in /usr/local/bin. The pccc.h header file will be installed in
+/usr/local/include. These defaults can be changed by editing the Makefiles
+as desired.
+
+No configuration file is installed for df1d. Modify the example, df1d.cfg.xml,
+and place it where you like.
+
+
+Using libpccc
+=============
+Programs will need to #include <pccc.h> and add -lpccc when linking.
+
+
+
+libpccc documentation
+=====================
+HTML documentation is available for the libpccc API.
+It can be made as follows:
+
+cd lib
+make docs
+
+Point your browser to index.html in the lib/docs directory.
+
+
+
+Starting the DF1 link layer service
+===================================
+df1d <config file>
+
+Running df1d without any configuration file specified will print out detailed
+usage.
+
+
+
+
+Contact information
+===================
+Please report any bugs, comments, suggestions, etc to jvalenzuela@dspfl.com.

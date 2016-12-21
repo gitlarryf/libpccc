@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+A note concerning embedded responses:
+DF1 connections may be configured with embedded responses enabled or
+auto-detect. Although df1d will never generate embedded responses, it will
+correctly receive them. If df1d detects the use of embedded responses, it may
+generate a notice depending on the current logging level.
+-->
+
+<df1d_config>
+
+  <!--
+   For each DF1 connection a 'connection' element is required.
+   The various configuration options for the connection are its
+   children. At least one connection must be configured.
+   --> 
+  <connection>
+
+    <!--
+    This is a descriptive name for the connection. It is used
+    in log entries to identify messages specific to a connection.
+    Limited to sixteen characters.
+    -->
+    <name>slc505</name>
+
+    <!--
+    Duplex mode for the connection. Currently only 'Full' is supported.
+    -->
+    <duplex>full</duplex>
+
+    <!--
+    Checksum calculation method. Supported values are 'CRC' or 'BCC'.
+    -->
+    <error_detect>crc</error_detect>
+
+    <!--
+    The serial port device to use.
+    -->
+    <device>/dev/ttyS0</device>
+
+    <!--
+    Serial port baud rate. Supported values are 110, 300, 600, 1200, 2400,
+    9600, 19200, and 38400.
+    -->
+    <baud>38400</baud>
+
+    <!--
+    The TCP port number to listen for libpccc client connections. This must
+    be unique across all configured connections.
+    -->
+    <port>10505</port>
+
+    <!--
+    Enable or disable duplicate message detection. If enabled, duplicate
+    messages are ignored. Supported values are 'Yes' and 'No'.    
+    -->
+    <duplicate_detect>yes</duplicate_detect>
+
+    <!--
+    The maximum number of NAKs allowed when trying to transmit a message. After
+    this many NAKs have been received, the transmission is aborted. Valid
+    values are 0-255.
+    -->
+    <max_nak>3</max_nak>
+
+    <!--
+    The maximum number of ENQs sent when trying to transmit a message. After
+    this may ENQs have been sent soliciting a response, the transmission is
+    aborted. Valid values are 0-255.
+    -->
+    <max_enq>3</max_enq>
+
+    <!--
+    The amount of time, in milliseconds, to await an ACK for a message sent.
+    After this expires, an ENQ is sent to try and reestablish communications.
+    Rounded down to the nearest 10 milliseconds.
+    -->
+    <ack_timeout>1000</ack_timeout>
+
+  </connection>
+
+  <connection>
+    <name>1785-KE</name>
+    <duplex>full</duplex>
+    <error_detect>crc</error_detect>
+    <device>/dev/ttyE0</device>
+    <baud>19200</baud>
+    <port>11785</port>
+    <duplicate_detect>yes</duplicate_detect>
+    <max_nak>3</max_nak>
+    <max_enq>3</max_enq>
+    <ack_timeout>1000</ack_timeout>
+  </connection>
+
+  <connection>
+    <name>1747-KE</name>
+    <duplex>full</duplex>
+    <error_detect>crc</error_detect>
+    <device>/dev/ttyE2</device>
+    <baud>19200</baud>
+    <port>11747</port>
+    <duplicate_detect>yes</duplicate_detect>
+    <max_nak>3</max_nak>
+    <max_enq>3</max_enq>
+    <ack_timeout>1000</ack_timeout>
+  </connection>
+
+  <connection>
+    <name>1771-KE</name>
+    <duplex>full</duplex>
+    <error_detect>crc</error_detect>
+    <device>/dev/ttyE3</device>
+    <baud>19200</baud>
+    <port>11771</port>
+    <duplicate_detect>yes</duplicate_detect>
+    <max_nak>3</max_nak>
+    <max_enq>3</max_enq>
+    <ack_timeout>1000</ack_timeout>
+  </connection>
+
+</df1d_config>
